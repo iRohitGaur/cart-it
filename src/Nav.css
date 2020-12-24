@@ -1,0 +1,18 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  background-color: lightgray;
+}
+
+.nav__cartItems {
+  display: flex;
+}
+
+.nav__logo {
+  font-size: 1.5rem;
+}
+
+.nav__cartIcon {
+  padding: 0 0.5rem;
+}
