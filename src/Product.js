@@ -2,7 +2,7 @@ import React from "react";
 import "./Product.css";
 import StarRatings from "../node_modules/react-star-ratings";
 
-function Product({ product }) {
+function Product({ product, addToCart }) {
   return (
     <div className="product">
       <div className="product__title">{product.title}</div>
@@ -20,7 +20,12 @@ function Product({ product }) {
         />
       </div>
       <img className="product__img" src={product.image} alt="" />
-      <button className="product__cartButton">Add to Cart</button>
+      <button
+        onClick={() => addToCart(product)}
+        className="product__cartButton"
+      >
+        Add to Cart
+      </button>
     </div>
   );
 }
