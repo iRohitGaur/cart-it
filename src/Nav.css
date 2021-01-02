@@ -16,3 +16,12 @@
 .nav__cartIcon {
   padding: 0 0.5rem;
 }
+
+a {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+  color: black;
+}

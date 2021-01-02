@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./App.css";
 import Home from "./Home";
 import Nav from "./Nav";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
   const [cartItem, setCartItem] = useState([]);
@@ -71,10 +72,20 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <Nav cartItems={cartItem ? cartItem.length : 0} />
-      <Home products={products} addToCart={(product) => addToCart(product)} />
-    </div>
+    <Router>
+      <div className="App">
+        <Nav cartItems={cartItem ? cartItem.length : 0} />
+        <Switch>
+          <Route path="/cart"></Route>
+          <Route path="/">
+            <Home
+              products={products}
+              addToCart={(product) => addToCart(product)}
+            />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
