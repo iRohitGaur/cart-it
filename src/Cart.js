@@ -1,11 +1,16 @@
 import React from "react";
-import Product from "./Product";
+import ProductCart from "./ProductCart";
 
-function Cart({ cartItems }) {
+function Cart({ cartItems, removeFromCart }) {
   return (
     <div className="home">
-      {cartItems.map((item) => (
-        <Product key={item.id} product={item} />
+      {cartItems.map((item, index) => (
+        <ProductCart
+          key={index}
+          product={item}
+          index={index}
+          removeFromCart={(index) => removeFromCart(index)}
+        />
       ))}
     </div>
   );

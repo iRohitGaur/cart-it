@@ -19,13 +19,22 @@ function App() {
     setCartItem([...cartItem, product]);
   };
 
+  const removeFromCart = (index) => {
+    const newCart = [...cartItem];
+    newCart.splice(index, 1);
+    setCartItem(newCart);
+  };
+
   return (
     <Router>
       <div className="App">
         <Nav cartItems={cartItem ? cartItem.length : 0} />
         <Switch>
           <Route path="/cart">
-            <Cart cartItems={cartItem} />
+            <Cart
+              cartItems={cartItem}
+              removeFromCart={(index) => removeFromCart(index)}
+            />
           </Route>
           <Route path="/">
             <Home
