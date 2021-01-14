@@ -1,0 +1,17 @@
+.checkout__bg {
+  width: 100%;
+  margin: 1rem;
+  padding: 0.5rem;
+  background-color: white;
+  text-align: left;
+}
+
+.checkout__button {
+  background-color: gold;
+  border-radius: 4px;
+  font-weight: 500;
+  margin: 1rem 0;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+}

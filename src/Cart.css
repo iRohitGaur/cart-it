@@ -1,0 +1,16 @@
+.cart__container {
+  display: flex;
+  flex-direction: row;
+  background-color: whitesmoke;
+}
+
+.cart__products {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+}
+
+.cart__checkout {
+  width: 30%;
+}

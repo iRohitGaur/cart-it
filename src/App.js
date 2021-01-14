@@ -5,8 +5,11 @@ import Nav from "./Nav";
 import Cart from "./Cart";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { products } from "./products";
+import Checkout from "./Checkout";
 
 function App() {
+  const [cartCheckoutFlag, setCartCheckoutFlag] = useState(false);
+
   const [cartItem, setCartItem] = useState(
     () => JSON.parse(window.localStorage.getItem("cartItem")) || []
   );
@@ -16,6 +19,7 @@ function App() {
   }, [cartItem]);
 
   const addToCart = (product) => {
+    setCartCheckoutFlag(false);
     setCartItem([...cartItem, product]);
   };
 
@@ -23,6 +27,11 @@ function App() {
     const newCart = [...cartItem];
     newCart.splice(index, 1);
     setCartItem(newCart);
+  };
+
+  const clearCart = () => {
+    setCartCheckoutFlag(true);
+    setCartItem([]);
   };
 
   return (
@@ -34,7 +43,11 @@ function App() {
             <Cart
               cartItems={cartItem}
               removeFromCart={(index) => removeFromCart(index)}
+              clearCart={() => clearCart()}
             />
+          </Route>
+          <Route path="/checkout">
+            <Checkout cartCheckoutFlag={cartCheckoutFlag} />
           </Route>
           <Route path="/">
             <Home
